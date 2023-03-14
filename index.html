@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css" />
+    <title>Vite + Albio</title>
+  </head>
+  <body>
+    <div>
+      <input
+        bind:value="newItem"
+        type="text"
+        placeholder="Enter a todo item.."
+      />
+      <button on:click="addToList">Add</button>
+    </div>
+    {#each todoList as item}
+    <div>
+      <input bind:checked="item.status" type="checkbox" />
+      <span class:checked="item.status">{item.text}</span>
+      <span on:click="() => { removeFromList(item) }">❌</span>
+    </div>
+    {/each}
+
+    <script>
+      export let newItem = "";
+      export let todoList = [
+        { text: "Buy mom flowers", status: true },
+        { text: "Write in journal for 10 min", status: false },
+        { text: "Take over the world", status: false },
+      ];
+      function addToList() {
+        todoList = [...todoList, { text: newItem, status: false }];
+        newItem = "";
+      }
+      function removeFromList(item) {
+        todoList.splice(todoList.indexOf(item), 1);
+        todoList = todoList;
+      }
+    </script>
+  </body>
+</html>
