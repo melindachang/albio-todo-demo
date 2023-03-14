@@ -10,14 +10,14 @@
   <body>
     <img src="/vite.svg" class="logo" alt="" />
     <div>
-      <input bind:value="newItem" type="text" placeholder="Enter a todo item.." />
-      <button on:click="addToList">Add</button>
+      <input :value="newItem" type="text" placeholder="Enter a todo item.." />
+      <button @click="addToList">Add</button>
     </div>
     {#each todoList as item}
     <div>
-      <input bind:checked="item.status" type="checkbox" />
+      <input :checked="item.status" type="checkbox" />
       <span class:checked="item.status">{item.text}</span>
-      <span on:click="() => { removeFromList(item) }">❌</span>
+      <span @click="() => { removeFromList(item) }">❌</span>
     </div>
     {/each}
 
