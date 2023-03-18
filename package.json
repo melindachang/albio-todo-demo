@@ -11,7 +11,7 @@
   "devDependencies": {
     "albio": "^1.0.58",
     "prettier": "^2.8.4",
-    "vite": "^4.1.4",
-    "vite-plugin-albio": "^1.0.33"
+    "vite": "^4.2.0",
+    "vite-plugin-albio": "^1.0.35"
   }
 }
